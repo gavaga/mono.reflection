@@ -41,5 +41,13 @@ namespace Mono.Reflection {
 
 			return MethodBodyReader.GetInstructions (self).AsReadOnly ();
 		}
+
+		public static IList<LocalVariableInfo> GetLocalVariables(this MethodBase self)
+		{
+			if (self == null)
+				throw new ArgumentException(nameof(self));
+
+			return MethodBodyReader.GetLocalVariables(self);
+		}
 	}
 }
